@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/User';
-import { ThrowStmt } from '@angular/compiler';
 import { TestService } from '../test.service';
 
 @Component({
