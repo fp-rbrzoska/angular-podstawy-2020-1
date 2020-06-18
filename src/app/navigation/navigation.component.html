@@ -4,6 +4,11 @@
   <a routerLink="/contact">Contact</a>
   <a routerLink="/test">Test</a>
 
-  <button>Login</button>
-  <button>Logout</button>
+  <ng-container  *ngIf="isLoggedIn$ | async; else login">
+    <button (click)="logOut()">Logout</button>
+  </ng-container>
+  <ng-template #login>
+    <button (click)="logIn()">Login</button>
+  </ng-template>
+
 </div>
