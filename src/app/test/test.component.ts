@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/User';
 import { TestService } from '../test.service';
+import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'fp-test',
@@ -8,6 +9,12 @@ import { TestService } from '../test.service';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+  testobservable$ = of(1,2,3,4,5);
+  private _testSubj = new BehaviorSubject<string>('x');
+  testObsFromSubj$ = this._testSubj.asObservable();
+
+  testData;
+
   counterValue: number;
   users: User[] = [
     { age: 17, name: 'Stanisław Żółtek'},
@@ -29,6 +36,13 @@ export class TestComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this.testObsFromSubj$.subscribe(dta => this.testData = dta)
+    this._testSubj.subscribe(val => console.log(val));
+    //this.testobservable$.subscribe(val => console.log(val));
+  }
+  changeSubj(val) {
+    this._testSubj.next(val);
   }
 
   toggleAddress() {
