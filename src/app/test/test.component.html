@@ -8,7 +8,7 @@
 <fp-test3 [user]="testVar" (sendName)="alertNewName($event)"></fp-test3> -->
 
 <div>
-  <button (click)="toggleAddress()">Toggle Addresses</button>
+  <button (click)="toggleAddress()">Toggle Addresses</button> Number of clicks: {{counterValue}}
 <table >
   <ng-container  *ngFor="let user of users">
     <tr>

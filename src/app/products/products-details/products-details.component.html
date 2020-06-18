@@ -1,5 +1,5 @@
 <div>
-  {{product.name}} <span [ngClass]="{red: product.price < 2}">({{product.price | currency: 'EUR'}})</span>
+  {{product.name}} <span [ngClass]="{red: product.price < 2}">({{product.price | currency: 'EUR'}}) </span>
 </div>
 <div *ngIf="showDescription">
   {{product.description}}

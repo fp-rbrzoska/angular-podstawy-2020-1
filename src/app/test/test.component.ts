@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/User';
 import { ThrowStmt } from '@angular/compiler';
+import { TestService } from '../test.service';
 
 @Component({
   selector: 'fp-test',
@@ -8,7 +9,7 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-
+  counterValue: number;
   users: User[] = [
     { age: 17, name: 'Stanisław Żółtek'},
     { age: 30, name: 'Alojzy Jeż', address: { city: 'Bytom', street: 'Hasiok 15'}}
@@ -25,12 +26,16 @@ export class TestComponent implements OnInit {
       street: 'Za winklym 7'
     }
   };
-  constructor() { }
+  constructor(private testService: TestService) {
+   }
 
   ngOnInit() {
   }
 
   toggleAddress() {
+    this.testService.inc();
+
+    this.counterValue = this.testService.counter;
     this.showAddresses = !this.showAddresses;
   }
 
