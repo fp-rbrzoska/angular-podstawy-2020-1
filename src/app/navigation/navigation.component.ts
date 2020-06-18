@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class NavigationComponent implements OnInit {
 
-  isLoggedIn$: Observable<boolean>;
+  isLoggedIn: boolean;
 
   constructor(private authService: AuthService) {
-    this.isLoggedIn$ = this.authService.isLoggedIn$;
+    this.authService.isLoggedIn$.subscribe(v => this.isLoggedIn = v);
    }
 
   ngOnInit() {
