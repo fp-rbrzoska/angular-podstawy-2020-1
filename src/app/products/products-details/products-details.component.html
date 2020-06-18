@@ -1,3 +1,6 @@
 <div>
   {{product.name}} ({{product.price | currency: 'EUR'}})
 </div>
+<div *ngIf="showDescription">
+  {{product.description}}
+</div>

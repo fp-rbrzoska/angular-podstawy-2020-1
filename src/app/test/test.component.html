@@ -1,8 +1,21 @@
-<p class="red">test works!</p>
+<!-- <p class="red">test works!</p>
 <input #myInput>
 {{ testVar | json }}
 {{ testVar?.name | uppercase}}
 {{ myInput.value }}
 <button (click)="btnClick($event)">Refresh</button>
 
-<fp-test3 [user]="testVar" (sendName)="alertNewName($event)"></fp-test3>
+<fp-test3 [user]="testVar" (sendName)="alertNewName($event)"></fp-test3> -->
+
+<div>
+  <button (click)="toggleAddress()">Toggle Addresses</button>
+<table >
+  <ng-container  *ngFor="let user of users">
+    <tr>
+      {{ user.name}} <span [ngClass]="{'red': user.age < 18, 'green': user.age >= 18}">({{user.age}})</span>
+    </tr>
+    <tr *ngIf="user.address && showAddresses">{{user.address?.city}}, {{user.address?.street}}</tr>
+  </ng-container>
+
+</table>
+</div>

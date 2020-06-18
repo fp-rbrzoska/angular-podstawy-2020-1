@@ -1,4 +1,5 @@
 <h2>Products</h2>
-<fp-products-details [product]="products[0]"></fp-products-details>
-<fp-products-details [product]="products[1]"></fp-products-details>
+<button (click)="showDescriptions = !showDescriptions">Toggle descriptions</button>
+<fp-products-details *ngFor="let product of products"
+[product]="product" [showDescription]="showDescriptions"></fp-products-details>
 
