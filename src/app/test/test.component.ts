@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../models/User';
 import { TestService } from '../test.service';
 import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
+import { share } from 'rxjs/operators';
 
 @Component({
   selector: 'fp-test',
@@ -14,6 +15,8 @@ export class TestComponent implements OnInit {
   testObsFromSubj$ = this._testSubj.asObservable();
 
   testData;
+
+  profile$;
 
   counterValue: number;
   users: User[] = [
@@ -33,6 +36,7 @@ export class TestComponent implements OnInit {
     }
   };
   constructor(private testService: TestService) {
+    this.profile$ = this.testService.getProfile().pipe(share());
    }
 
   ngOnInit() {
