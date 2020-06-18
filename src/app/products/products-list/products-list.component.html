@@ -1,5 +1,5 @@
 <h2>Products</h2>
 <button (click)="showDescriptions = !showDescriptions">Toggle descriptions</button>
-<fp-products-details *ngFor="let product of products"
+<fp-products-details *ngFor="let product of products$ | async"
 [product]="product" [showDescription]="showDescriptions"></fp-products-details>
 
