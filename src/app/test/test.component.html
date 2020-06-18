@@ -1,1 +1,8 @@
 <p class="red">test works!</p>
+<input #myInput>
+{{ testVar | json }}
+{{ testVar?.name | uppercase}}
+{{ myInput.value }}
+<button (click)="btnClick($event)">Refresh</button>
+
+<fp-test3 [user]="testVar" (sendName)="alertNewName($event)"></fp-test3>

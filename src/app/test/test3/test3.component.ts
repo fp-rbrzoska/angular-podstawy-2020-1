@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'fp-test3',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Test3Component implements OnInit {
 
-  constructor() { }
+  @Input() user: User;
+  @Output() sendName = new EventEmitter();
+
+  constructor() {
+    console.log('constructor: ' + this.user)
+   }
 
   ngOnInit() {
+    console.log('ngOnInit: ' + this.user)
+  }
+
+  changeName() {
+    this.sendName.emit(this.user.name.toUpperCase())
   }
 
 }
