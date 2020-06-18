@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 
 @Component({
@@ -6,13 +6,21 @@ import { Product } from 'src/app/models/Product';
   templateUrl: './products-details.component.html',
   styleUrls: ['./products-details.component.scss']
 })
-export class ProductsDetailsComponent implements OnInit {
+export class ProductsDetailsComponent implements OnInit, OnChanges {
 
+  showDescr;
   @Input() product: Product;
-  @Input() showDescription;
+  @Input()
+  set showDescription(value) {
+    this.showDescr = value;
+  };
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes) {
+    console.log(changes)
   }
 
 }

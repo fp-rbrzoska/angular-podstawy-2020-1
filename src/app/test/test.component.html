@@ -6,7 +6,11 @@
 <button (click)="btnClick($event)">Refresh</button>
 
 <fp-test3 [user]="testVar" (sendName)="alertNewName($event)"></fp-test3> -->
-
+<h2>Reactive form</h2>
+<div>
+  <fp-test-form></fp-test-form>
+</div>
+<hr>
 {{ profile$ | async | json }}
 
 <div>

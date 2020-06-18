@@ -1,0 +1,6 @@
+<form [formGroup]="myTestForm" (submit)="submitForm()">
+  Name: <input formControlName="userName">
+  Email: <input formControlName="email">
+  <button>Save</button>
+</form>
+{{myTestForm.getRawValue() | json}}
